@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Youssouf
  */
-public class Class {
+public class Classes {
    public String classId;
    public String className;
 

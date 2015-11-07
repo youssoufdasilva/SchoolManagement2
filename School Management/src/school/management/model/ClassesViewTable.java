@@ -10,25 +10,26 @@ import javax.swing.table.AbstractTableModel;
 import java.sql.*;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.sql.DriverManager;
 
 /**
  *
  * @author Youssouf
  */
-public class ClassViewTable extends AbstractTableModel{
-    ArrayList<Class> data;
-    static  ClassViewTable theModel = null;
+public class ClassesViewTable extends AbstractTableModel{
+    ArrayList<Classes> data;
+    static  ClassesViewTable theModel = null;
     String[] columnNames = {"CLASS ID","CLASS NAME"};
     final static int CLASSID=0;
     final static int CLASSNAME=1;
 
-    public ClassViewTable(){
-        data = new ArrayList<Class>();
+    public ClassesViewTable(){
+        data = new ArrayList<Classes>();
     }
 
-    public static ClassViewTable getInstance(){
+    public static ClassesViewTable getInstance(){
         if(theModel==null)
-            theModel=new ClassViewTable();
+            theModel=new ClassesViewTable();
         return theModel;
     }
 
@@ -48,7 +49,7 @@ public class ClassViewTable extends AbstractTableModel{
     */
     @Override
      public Object getValueAt(int row, int col) {
-        Class c = data.get(row);
+        Classes c = data.get(row);
 
         Object cellData = null;
         switch (col){
@@ -89,8 +90,9 @@ public class ClassViewTable extends AbstractTableModel{
     //without this, all edits are discarded.
     @Override
     public void setValueAt(Object value, int row, int col) {
-        Class c;
+        Classes c;
         c = data.get(row);
+        Object cellData = null;
         switch (col){
             case CLASSID:
                 cellData = (String) c.classId;
@@ -110,7 +112,7 @@ public class ClassViewTable extends AbstractTableModel{
 
     public static void saveToDataBase(String query){
         try{
-            Connection connect = ConnectToDatabase.getConnection();
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/cdcol?user=root&password=");
             Statement statm = connect.createStatement();
             statm.executeUpdate(query);
         }
@@ -120,11 +122,11 @@ public class ClassViewTable extends AbstractTableModel{
     }
     //my own function to add to model
     //this could have received the raw data as four params and added.
-    public void addToModel(Class c){
+    public void addToModel(Classes c){
         data.add(c);
         fireTableRowsInserted(0, 0);
     }
-    public ArrayList<Class> getList(){
+    public ArrayList<Classes> getList(){
         return data;
     }
 }
