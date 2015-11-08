@@ -18,15 +18,14 @@ import java.util.ArrayList;
 public class StudentViewTable extends AbstractTableModel{
     ArrayList<Student> data;
     static  StudentViewTable theModel=null;
-    String[] columnNames={"STUDENT ID","FIRST NAME","SURNAME","DATE OF BIRTH","CURRENT DATE","AGE","NATIONALITY","YEAR GROUP"};
+    String[] columnNames={"STUDENT ID","FIRST NAME","SURNAME","DATE OF BIRTH","AGE","NATIONALITY","YEAR GROUP"};
     final static int STUDENTID=0;
     final static int FIRSTNAME=1;
     final static int SURNAME=2;
     final static int DATEOFBIRTH=3;
-    final static int CURRENTDATE=4;
-    final static int AGE=5;
-    final static int NATIONALITY=6;
-    final static int YEARGROUP=7;
+    final static int AGE=4;
+    final static int NATIONALITY=5;
+    final static int YEARGROUP=6;
     
     public StudentViewTable(){
         data=new ArrayList<Student>();
@@ -69,9 +68,6 @@ public class StudentViewTable extends AbstractTableModel{
                 break;
             case DATEOFBIRTH:
                 cellData= s.dateOfBirth;
-                break;
-            case CURRENTDATE:
-                cellData= s.currentdate;
                 break;
             case AGE:
                 cellData= s.age;
@@ -127,9 +123,6 @@ public class StudentViewTable extends AbstractTableModel{
                 break;
             case DATEOFBIRTH: 
                 s.dateOfBirth=(Date)value;;
-                break;
-            case CURRENTDATE: 
-                s.currentdate=(Date)value;
                 break;
             case AGE: 
                 s.age=Integer.valueOf((Integer)value);

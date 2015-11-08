@@ -15,7 +15,6 @@ public class Student {
    public String firstName;
    public String lastName;
    public Date dateOfBirth;
-   public Date  currentdate;
    public int age;
    public String nationality;
    public String yearGroup;

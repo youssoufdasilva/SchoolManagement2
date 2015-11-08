@@ -7,29 +7,29 @@ package school.management.controller;
 import java.awt.event.ActionEvent;
 import school.management.model.StudentViewTable;
 import school.management.model.Student;
-import school.management.view.AddNewStudentDialog;
+import school.management.view.AddNewStudentView;
 import java.awt.event.ActionListener;
-/**
+/*
  *
  * @author Migaliza
  */
 public class AddNewStudentController implements ActionListener{
-    AddNewStudentDialog view; 
+    AddNewStudentView view; 
     StudentViewTable model;
     //I have not been consistent in view & model naming. 
     //should be addNewForm etc.
-    public AddNewStudentController(StudentViewTable modelTable, AddNewStudentDialog add) {
+    public AddNewStudentController(StudentViewTable modelTable, AddNewStudentView add) {
         view =add;
         model= modelTable;        
     }
     public void control(){
-        view.getExitFormButton().addActionListener(this);
-        view.getAddVallueButton().addActionListener(this);
+        view.getExitStudentButton().addActionListener(this);
+        view.getAddStudentButton().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {            
-        if (ae.getSource()==view.getExitFormButton() )
+        if (ae.getSource()==view.getExitStudentButton() )
         {               
             view.dispose();
         }
@@ -39,14 +39,14 @@ public class AddNewStudentController implements ActionListener{
             //I can have a separate fxn in the model to simply receive
             //the individual elemnets instead of a stuent object
             Student s= new Student();
-            s.StudentID= view.getStudentID();
-            s.FirstName=view.getStudentFirstName();
-            s.Surname=view.getStudentSurname();
-            s.Age=Integer.parseInt(view.getStudentAge());
-            s.graduationYear=Integer.parseInt(view.getStudentYearGroup());
-            s.LetterGrade=(String)view.getCombobox();
-            s.marks=Integer.parseInt(view.getStudentMArks());
-            s.program=myMajor.Major.valueOf(view.getCombobox());
+            s.studentId= view.getStudentID();
+            s.firstName=view.getFirstName();
+            s.lastName=view.getLastName();
+            s.dateOfBirth=view.getDateOfBirth();
+            s.age=view.getAge();
+            s.nationality=view.getNationality();
+            s.yearGroup=view.getYearGroup();
+            
 
             model.addToModel(s);
         }
