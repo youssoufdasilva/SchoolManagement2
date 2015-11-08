@@ -81,8 +81,8 @@ public class StreamViewTable extends AbstractTableModel{
 
     // uses this to determine the default renderer or
     // editor for each cell.
-    public Stream getColumnStream(int c) {
-        return getValueAt(0, c).getStream();
+    public Class getColumnClass(int c) {
+        return getValueAt(0, c).getClass();
     }
 
     //implement this to be able to alter your table data from UI!
@@ -91,6 +91,7 @@ public class StreamViewTable extends AbstractTableModel{
     public void setValueAt(Object value, int row, int col) {
         Stream str;
         str = data.get(row);
+        Object cellData = null;
         switch (col){
             case STREAMID:
                 cellData = (String) str.streamId;
@@ -110,7 +111,8 @@ public class StreamViewTable extends AbstractTableModel{
 
     public static void saveToDataBase(String query){
         try{
-            Connection connect = ConnectToDatabase.getConnection();
+            //Connection connect = ConnectToDatabase.getConnection();
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/cdcol?user=root&password=");
             Statement statm = connect.createStatement();
             statm.executeUpdate(query);
         }

@@ -54,7 +54,7 @@ public class StaffViewTable extends AbstractTableModel{
      public Object getValueAt(int row, int col) {
         Staff s= data.get(row);
 
-        Object cellData=null;
+        Object cellData = null;
         switch (col){
             case STAFFID:
                 cellData= s.staffId;
@@ -68,11 +68,11 @@ public class StaffViewTable extends AbstractTableModel{
             case DATEOFBIRTH:
                 cellData= s.dateOfBirth;
                 break;
-            case HIREDTDATE:
-                cellData= s.currentdate;
+            case HIREDDATE:
+                cellData= s.hiredDate;
                 break;
             case DEPARTMENT:
-                cellData= s.nationality;
+                cellData= s.department;
                 break;
         }
         return cellData;
@@ -107,6 +107,7 @@ public class StaffViewTable extends AbstractTableModel{
     public void setValueAt(Object value, int row, int col) {
         Staff s;
         s=data.get(row);
+        Object cellData = null;
         switch (col){
             case STAFFID:
                 cellData= s.staffId;
@@ -120,11 +121,11 @@ public class StaffViewTable extends AbstractTableModel{
             case DATEOFBIRTH:
                 cellData= s.dateOfBirth;
                 break;
-            case HIREDTDATE:
-                cellData= s.currentdate;
+            case HIREDDATE:
+                cellData= s.hiredDate;
                 break;
             case DEPARTMENT:
-                cellData= s.nationality;
+                cellData= s.department;
                 break;
         }
 
@@ -139,7 +140,8 @@ public class StaffViewTable extends AbstractTableModel{
 
     public static void saveToDataBase(String query){
         try{
-            Connection connect = ConnectToDatabase.getConnection();
+            //Connection connect = ConnectToDatabase.getConnection();
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/cdcol?user=root&password=");
             Statement stmt = connect.createStatement();
             stmt.executeUpdate(query);
         }
