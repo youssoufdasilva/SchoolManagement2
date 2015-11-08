@@ -10,5 +10,21 @@ package school.management.model;
  * @author Migaliza
  */
 public class GradeTable {
+    String yearGroup;
+    String stream;
+    String StudentId;
+    String firstName;
+    String lastName;
+    double Math;
+    double science;
+    double english;
+    double technology;
+    double average;
+    String Grade;
+    
+    public String toString(){
+        return yearGroup+"\t"+stream+"\t"+firstName+"\t"+lastName+"\t"+Math+"\t"+science+"\t"+english+"\t"+technology+"\t"+average+"\t"+Grade;
+    }
+    
     
 }

@@ -147,20 +147,8 @@ public class StudentViewTable extends AbstractTableModel{
 
     }
     
-    /*
-    Method to save to database
-    */
+   
     
-    public static void saveToDataBase(String query){
-        try{
-            Connection connect = ConnectToDatabase.getConnection();
-            Statement stmt = connect.createStatement();
-            stmt.executeUpdate(query);
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
     //my own function to add to model
     //this could have received the raw data as four params and added.
     public void addToModel(Student s){
