@@ -48,7 +48,6 @@ create table report(
     stream integer,
     mark integer,
     class_teacher integer,
-    letter_grade enum('A','B','C','D','E','F'),
     foreign key (stud_id) references student (student_id),
     foreign key (class_id) references classes (class_id),
     foreign key (stream) references stream (stream_id),
@@ -69,6 +68,17 @@ create table fee(
     foreign key (stream_id) references stream (stream_id),
     foreign key (stud_id) references student (student_id)
    
+);
+
+create table grade(
+	grade_id int primary key,
+    letter_grade enum('A','B','C','D','E','F'),
+    stud_id integer,
+    mark integer,
+    sub_id integer,
+    foreign key (stud_id) references student (student_id),
+    foreign key (sub_id) references subjects (subject_id)
+
 );
 
 create table login(
