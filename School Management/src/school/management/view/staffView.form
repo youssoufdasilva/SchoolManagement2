@@ -45,7 +45,6 @@
                                   <Component id="txtStaffSurname" pref="151" max="32767" attributes="0"/>
                                   <Component id="txtStaffName" max="32767" attributes="0"/>
                                   <Component id="txtStaffId" max="32767" attributes="0"/>
-                                  <Component id="staffHireDate" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -53,8 +52,17 @@
                                   <Component id="addStaffButton" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="exitStaffButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace pref="137" max="32767" attributes="0"/>
+                                      <Component id="exitStaffButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="hireDate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -91,9 +99,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="staffHireDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hireDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addStaffButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exitStaffButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -160,8 +168,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtStaffDepartment">
     </Component>
-    <Component class="javax.swing.JTextField" name="staffHireDate">
-    </Component>
     <Component class="javax.swing.JButton" name="addStaffButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -177,6 +183,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="EXIT"/>
       </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="hireDate">
     </Component>
   </SubComponents>
 </Form>

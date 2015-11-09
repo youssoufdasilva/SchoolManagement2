@@ -46,7 +46,6 @@ public class AddNewStudentController implements ActionListener{
             s.age=view.getAge();
             s.nationality=view.getNationality();
             s.yearGroup=view.getYearGroup();
-            
 
             model.addToModel(s);
         }

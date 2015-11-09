@@ -6,6 +6,8 @@
 package school.management.view;
 
 import javax.swing.JButton;
+import java.util.Date;
+
 
 /**
  *
@@ -40,8 +42,8 @@ public class staffView extends javax.swing.JDialog {
     public String getStaffDepartment(){
         return txtStaffDepartment.getText();
     }
-    public String getStaffHireDate(){
-        return staffHireDate.getText();
+    public Date getStaffHireDate(){
+        return hireDate.getDate();
     }
 
     /**
@@ -63,9 +65,9 @@ public class staffView extends javax.swing.JDialog {
         txtStaffName = new javax.swing.JTextField();
         txtStaffSurname = new javax.swing.JTextField();
         txtStaffDepartment = new javax.swing.JTextField();
-        staffHireDate = new javax.swing.JTextField();
         addStaffButton = new javax.swing.JButton();
         exitStaffButton = new javax.swing.JButton();
+        hireDate = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -116,14 +118,19 @@ public class staffView extends javax.swing.JDialog {
                                     .addComponent(txtStaffDepartment)
                                     .addComponent(txtStaffSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                     .addComponent(txtStaffName)
-                                    .addComponent(txtStaffId)
-                                    .addComponent(staffHireDate)))
+                                    .addComponent(txtStaffId)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(addStaffButton)
                                     .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(exitStaffButton)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                                        .addComponent(exitStaffButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(hireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,8 +157,8 @@ public class staffView extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(staffHireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addComponent(hireDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addStaffButton)
                     .addComponent(exitStaffButton))
@@ -206,13 +213,13 @@ public class staffView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStaffButton;
     private javax.swing.JButton exitStaffButton;
+    private org.jdesktop.swingx.JXDatePicker hireDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField staffHireDate;
     private javax.swing.JTextField txtStaffDepartment;
     private javax.swing.JTextField txtStaffId;
     private javax.swing.JTextField txtStaffName;
