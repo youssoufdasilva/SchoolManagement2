@@ -37,6 +37,7 @@ public class generalInformation extends javax.swing.JDialog {
         jButton_subjects = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        back_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,6 +54,9 @@ public class generalInformation extends javax.swing.JDialog {
         jLabel1.setText("SCHOOL MANAGEMENT");
 
         jLabel2.setText("General Information");
+
+        back_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        back_btn.setText("Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +84,10 @@ public class generalInformation extends javax.swing.JDialog {
                         .addGap(160, 160, 160)
                         .addComponent(jButton_subjects)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(back_btn)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,10 +103,12 @@ public class generalInformation extends javax.swing.JDialog {
                 .addGap(12, 12, 12)
                 .addComponent(jButton_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_classes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_streams, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(back_btn)
+                .addContainerGap())
         );
 
         pack();
@@ -145,23 +155,27 @@ public class generalInformation extends javax.swing.JDialog {
             }
         });
     }
-    public JButton getStudents(){
+    public JButton getStudents_btn(){
         return jButton_students;
     }
-    public JButton getStaff(){
+    public JButton getStaff_btn(){
         return jButton_staff;
     }
-    public JButton getClasses(){
+    public JButton getClasses_btn(){
         return jButton_classes;
     }
-    public JButton getStreams(){
+    public JButton getStreams_btn(){
         return jButton_streams;
     }
-    public JButton getSubjects(){
+    public JButton getSubjects_btn(){
         return jButton_subjects;
+    }
+    public JButton getBack_btn(){
+        return back_btn;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back_btn;
     private javax.swing.JButton jButton_classes;
     private javax.swing.JButton jButton_staff;
     private javax.swing.JButton jButton_streams;

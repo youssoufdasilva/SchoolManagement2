@@ -196,7 +196,7 @@ public class gradeManagementView extends javax.swing.JDialog {
                             .addComponent(txtStreamGrade)
                             .addComponent(txtFNameGrade)
                             .addComponent(txtSurnameGrade))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
