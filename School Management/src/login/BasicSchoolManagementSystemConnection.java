@@ -68,6 +68,25 @@ public class BasicSchoolManagementSystemConnection {
             return false;
         }
     }
+    
+    public boolean validate_login_online(String username,String password) {
+        try{           
+            Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
+            conn = DriverManager.getConnection("jdbc:mysql://sql4.freemysqlhosting.net?" + "user=sql495940&password=9BvB5fBfsy");     
+            pst = conn.prepareStatement("Select * from login where username=? and password=?");
+            pst.setString(1, username); 
+            pst.setString(2, password);
+            rs = pst.executeQuery();                        
+            if(rs.next())            
+                return true;    
+            else
+                return false;            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
   
     Connection getConnection (){
         return conn;

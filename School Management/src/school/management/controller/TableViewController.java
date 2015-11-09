@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.youssouf.mvc.controllers;
+package school.management.controller;
 
-import com.youssouf.mvc.models.MajorComboboxModel;
-import com.youssouf.mvc.models.MyTableModel;
-import com.youssouf.mvc.models.Student;
-import com.youssouf.mvc.views.AddNewStudent;
-import com.youssouf.mvc.views.TableView;
+import school.management.model.MajorComboboxModel;
+import school.management.model.MyTableModel;
+import school.management.model.Student;
+import school.management.view.AddNewStudent;
+import school.management.view.TableView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;

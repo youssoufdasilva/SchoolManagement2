@@ -157,7 +157,8 @@ public class login_form extends javax.swing.JFrame {
            String user = txt_username.getText();   // Collecting the input
            char[] pass = txt_password.getPassword(); // Collecting the input
            String pwd = String.copyValueOf(pass);  // converting from array to string
-           if(bsconn.validate_login(user,pwd))
+           if(bsconn.validate_login(user,pwd)) //will work with staff & staff
+//           if(bsconn.validate_login_online(user,pwd)) //will work with admin & admin
               JOptionPane.showMessageDialog(null, "Correct Login Credentials");        
            else
               JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");
@@ -200,24 +201,6 @@ public class login_form extends javax.swing.JFrame {
         });
     }
 
-private boolean validate_login(String username,String password) {
-   try{           
-       Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
-       Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/basicSchoolDataBase?" + "user=root&password=");     
-       PreparedStatement pst = conn.prepareStatement("Select * from staff where username=? and password=?");
-       pst.setString(1, username); 
-       pst.setString(2, password);
-       ResultSet rs = pst.executeQuery();                        
-       if(rs.next())            
-           return true;    
-       else
-           return false;            
-   }
-   catch(Exception e){
-       e.printStackTrace();
-       return false;
-   }       
-}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;

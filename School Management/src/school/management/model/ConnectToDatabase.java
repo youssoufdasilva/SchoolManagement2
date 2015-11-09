@@ -23,4 +23,8 @@ public class ConnectToDatabase {
         return connection;
     }
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> beatrice
