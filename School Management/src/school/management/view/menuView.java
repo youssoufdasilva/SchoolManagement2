@@ -39,16 +39,22 @@ public class menuView extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton_genInfo.setText("General Information");
+        jButton_genInfo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton_genInfo.setText("GENERAL INFORMATION");
 
-        jButton_gradeMangnt.setText("Grade Management");
+        jButton_gradeMangnt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton_gradeMangnt.setText("GRADE MANAGEMENT");
 
-        jButton_feePaynt.setText("Fee Payment");
+        jButton_feePaynt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton_feePaynt.setText("FEE PAYMENT");
 
-        jButton_reports.setText("Reports");
+        jButton_reports.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton_reports.setText("REPORTS");
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("SCHOOL MANAGEMENT");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("MENU");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -59,33 +65,35 @@ public class menuView extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_gradeMangnt)
-                            .addComponent(jButton_genInfo)
-                            .addComponent(jButton_feePaynt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_reports, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton_genInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_gradeMangnt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_feePaynt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton_genInfo)
-                .addGap(35, 35, 35)
+                .addGap(27, 27, 27)
                 .addComponent(jButton_gradeMangnt)
-                .addGap(34, 34, 34)
+                .addGap(40, 40, 40)
                 .addComponent(jButton_feePaynt)
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(jButton_reports)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
