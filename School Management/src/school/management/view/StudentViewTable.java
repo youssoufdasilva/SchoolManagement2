@@ -13,6 +13,8 @@ public class StudentViewTable extends javax.swing.JDialog {
 
     /**
      * Creates new form StudentViewTable
+     * @param parent
+     * @param modal
      */
     public StudentViewTable(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -132,6 +134,7 @@ public class StudentViewTable extends javax.swing.JDialog {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 StudentViewTable dialog = new StudentViewTable(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
