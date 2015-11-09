@@ -160,10 +160,8 @@ public class login_form extends javax.swing.JFrame {
            char[] pass = txt_password.getPassword(); // Collecting the input
            String pwd = String.copyValueOf(pass);  // converting from array to string
            if(bsconn.validate_login(user,pwd)){ //will work with staff & staff
-//           if(bsconn.validate_login_online(user,pwd)){ //will work with admin & admin
-              JOptionPane.showMessageDialog(null, "Correct Login Credentials");   
-              
-               System.out.println("opening menu view");
+//           if(bsconn.validate_login_online(user,pwd)){ //will work with admin & admin 
+               System.out.println("Correct Login Credentials");
               menuView mv = new menuView(this,true);
               menuController mC = new menuController(mv);
               mC.control();

@@ -7,11 +7,16 @@ package school.management.controller;
 
 import school.management.login.login_form;
 import school.management.view.generalInformation;
-import school.management.view.studentView;
+import school.management.view.StudentViewTable;
 import school.management.view.staffView;
+import school.management.view.streamView;
+import school.management.view.subjectsView;
+import school.management.view.departmentsView;
+import school.management.view.classesView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 /**
  *
@@ -20,8 +25,12 @@ import java.awt.event.ActionListener;
 public class genInfoController implements ActionListener {
     login_form loginFrame;
     generalInformation gI;
-    studentView stdV;
+    StudentViewTable stdV;
     staffView stfV;
+    streamView strV;
+    subjectsView subV;
+    departmentsView depV;
+    classesView claV;
     
     public genInfoController(generalInformation genInfo){
         gI = genInfo;
@@ -33,6 +42,7 @@ public class genInfoController implements ActionListener {
         gI.getClasses_btn().addActionListener(this);
         gI.getStreams_btn().addActionListener(this);
         gI.getSubjects_btn().addActionListener(this);
+        gI.getDepartments_btn().addActionListener(this);
         gI.getBack_btn().addActionListener(this);
     }
     
@@ -40,11 +50,25 @@ public class genInfoController implements ActionListener {
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==gI.getStudents_btn()){
             System.out.println("About to set the GI to visible");
-            stdV = new studentView(loginFrame,true);
+            stdV = new StudentViewTable(loginFrame,true);
             stdV.setVisible(true);
         } else if (ae.getSource()==gI.getStaff_btn()){
             stfV = new staffView(loginFrame,true);
             stfV.setVisible(true);
+        } else if (ae.getSource()==gI.getStreams_btn()){
+            strV = new streamView(loginFrame,true);
+            strV.setVisible(true);
+        } else if (ae.getSource()==gI.getSubjects_btn()){
+            subV = new subjectsView(loginFrame,true);
+            subV.setVisible(true);
+        } else if (ae.getSource()==gI.getDepartments_btn()){
+            depV = new departmentsView(loginFrame,true);
+            depV.setVisible(true);
+        } else if (ae.getSource()==gI.getClasses_btn()){
+            claV = new classesView(loginFrame,true);
+            claV.setVisible(true);
+        } else if (ae.getSource()==gI.getBack_btn()){
+            gI.dispose();
         }
     }
 }
