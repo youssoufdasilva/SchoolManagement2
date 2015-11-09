@@ -3,6 +3,7 @@ Create table Student(
     firstname varchar(20),
     lastname varchar(20),
     date_of_birth date,
+    age integer,
 	admission_no integer,
     yeargroup integer,
     nationality varchar(30)
