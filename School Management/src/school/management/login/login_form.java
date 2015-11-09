@@ -165,7 +165,7 @@ public class login_form extends javax.swing.JFrame {
               
                System.out.println("opening menu view");
               menuView mv = new menuView(this,true);
-              menuController mC = new menuController();
+              menuController mC = new menuController(mv);
               mC.control();
               mv.setVisible(true);
 //              this.setVisible(false);

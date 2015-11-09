@@ -191,11 +191,11 @@ public class gradeManagementView extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtYearGroupGrade)
+                            .addComponent(txtYearGroupGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(txtClassGrade)
                             .addComponent(txtStreamGrade)
                             .addComponent(txtFNameGrade)
-                            .addComponent(txtSurnameGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))))
+                            .addComponent(txtSurnameGrade))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

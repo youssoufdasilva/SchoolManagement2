@@ -31,12 +31,12 @@ public class menuController implements ActionListener{
     gradeManagementView gM;
     feePaymentView fP;
     
-    public menuController(){
-        mV = new menuView(loginFrame,true);
+    public menuController(menuView mview){
+        mV = mview;
         
-        gI = new generalInformation(loginFrame,true);
-        gM = new gradeManagementView(loginFrame,true);
-        fP = new feePaymentView(loginFrame,true);
+//        gI = new generalInformation(loginFrame,true);
+//        gM = new gradeManagementView(loginFrame,true);
+//        fP = new feePaymentView(loginFrame,true);
     }
     
     public void control(){
@@ -50,9 +50,12 @@ public class menuController implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){
-        if (ae.getActionCommand().equals("GENERAL INFORMATION")){
+        if(ae.getSource()==mV.getGeneralInformation_btn()){
             System.out.println("About to set the GI to visible");
+            gI = new generalInformation(loginFrame,true);
             gI.setVisible(true);
+        } else if (ae.getSource()==mV.getGradeManagement_btn()){
+            
         }
     }
 }

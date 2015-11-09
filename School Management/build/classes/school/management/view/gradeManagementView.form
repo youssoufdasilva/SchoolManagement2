@@ -72,11 +72,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtYearGroupGrade" max="32767" attributes="0"/>
-                          <Component id="txtClassGrade" max="32767" attributes="0"/>
-                          <Component id="txtStreamGrade" max="32767" attributes="0"/>
-                          <Component id="txtFNameGrade" max="32767" attributes="0"/>
-                          <Component id="txtSurnameGrade" pref="188" max="32767" attributes="0"/>
+                          <Component id="txtYearGroupGrade" pref="250" max="32767" attributes="0"/>
+                          <Component id="txtClassGrade" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtStreamGrade" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFNameGrade" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSurnameGrade" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
