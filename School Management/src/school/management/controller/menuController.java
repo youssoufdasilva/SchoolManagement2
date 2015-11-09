@@ -55,7 +55,11 @@ public class menuController implements ActionListener{
             gI = new generalInformation(loginFrame,true);
             gI.setVisible(true);
         } else if (ae.getSource()==mV.getGradeManagement_btn()){
-            
+            gM = new gradeManagementView(loginFrame,true);
+            gM.setVisible(true);
+        } else if (ae.getSource()==mV.getFeePayment_btn()){
+            fP = new feePaymentView(loginFrame,true);
+            fP.setVisible(true);
         }
     }
 }
