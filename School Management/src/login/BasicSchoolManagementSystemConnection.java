@@ -72,6 +72,7 @@ public class BasicSchoolManagementSystemConnection {
     public boolean validate_login_online(String username,String password) {
         try{           
             Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
+            System.out.println("Connecting to the online database");
             conn = DriverManager.getConnection("jdbc:mysql://sql4.freemysqlhosting.net?" + "user=sql495940&password=9BvB5fBfsy");     
             pst = conn.prepareStatement("Select * from login where username=? and password=?");
             pst.setString(1, username); 
