@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package school.management.model;
+import java.util.*;
 
 /**
  *
- * @author youssouf.dasilva
+ * @author Youssouf
  */
-public class model {
-    
+public class Stream {
+   public String streamId;
+   public String streamName;
+
+   public String toString(){
+        return streamId+"\t"+streamName;
+    }
+
 }
