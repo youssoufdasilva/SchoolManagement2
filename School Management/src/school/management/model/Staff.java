@@ -11,16 +11,15 @@ import java.util.*;
  * @author Youssouf
  */
 public class Staff {
-   public String staffId;
+   public String staffSubject;
    public String firstName;
    public String lastName;
-   public Date dateOfBirth;
-   public Date  hiredDate;
+   public String  hiredDate;
    public String department;
 
 
    public String toString(){
-        return staffId+"\t"+firstName+"\t"+lastName+"\t"+dateOfBirth+"\t"+hiredDate+"\t"+department;
+        return staffSubject+"\t"+firstName+"\t"+lastName+"\t"+hiredDate+"\t"+department;
     }
 
 }

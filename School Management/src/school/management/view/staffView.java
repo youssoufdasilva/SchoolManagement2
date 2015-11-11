@@ -5,8 +5,10 @@
  */
 package school.management.view;
 
+import java.sql.PreparedStatement;
 import javax.swing.JButton;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -14,6 +16,7 @@ import java.util.Date;
  * @author Anne Gitau
  */
 public class staffView extends javax.swing.JDialog {
+    private Object jXDatePicker1;
 
     /**
      * Creates new form staffView
@@ -24,26 +27,23 @@ public class staffView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-     public JButton getAddStaffButton(){
+     public JButton getAddStaff_btn(){
         return addStaffButton;
      }
-     public JButton getExitStaffButton(){
+     public JButton getExitStaff_btn(){
         return exitStaffButton;
     }    
-    public String getStaffID(){
-        return txtStaffId.getText();
+    public String getStaffSubject_txt(){
+        return txtStaffSub.getText();
     }
-    public String getStaffname(){
+    public String getStaffname_txt(){
         return txtStaffName.getText();
     }
-    public String getStaffSurname(){
+    public String getStaffSurname_txt(){
         return txtStaffSurname.getText();
     }
-    public String getStaffDepartment(){
-        return txtStaffDepartment.getText();
-    }
-    public Date getStaffHireDate(){
-        return hireDate.getDate();
+    public String getStaffDepartment_txt(){
+        return (String)jComboBox1.getSelectedItem();
     }
 
     /**
@@ -60,13 +60,12 @@ public class staffView extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtStaffId = new javax.swing.JTextField();
+        txtStaffSub = new javax.swing.JTextField();
         txtStaffName = new javax.swing.JTextField();
         txtStaffSurname = new javax.swing.JTextField();
-        txtStaffDepartment = new javax.swing.JTextField();
         addStaffButton = new javax.swing.JButton();
         exitStaffButton = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,7 +73,7 @@ public class staffView extends javax.swing.JDialog {
         jLabel1.setText("STAFF");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setText("STAFF ID :");
+        jLabel2.setText("STAFF SUBJECT");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("FIRST NAME :");
@@ -85,14 +84,18 @@ public class staffView extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("DEPARTMENT :");
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("HIRE DATE");
-
         addStaffButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         addStaffButton.setText("ADD");
+        addStaffButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStaffButtonActionPerformed(evt);
+            }
+        });
 
         exitStaffButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         exitStaffButton.setText("EXIT");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "teacher", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +103,6 @@ public class staffView extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,16 +114,19 @@ public class staffView extends javax.swing.JDialog {
                                     .addComponent(jLabel5))
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtStaffDepartment)
                                     .addComponent(txtStaffSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                     .addComponent(txtStaffName)
-                                    .addComponent(txtStaffId)))
+                                    .addComponent(txtStaffSub)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(addStaffButton)
-                                    .addComponent(jLabel6))
+                                .addGap(2, 2, 2)
+                                .addComponent(addStaffButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
-                                .addComponent(exitStaffButton)))))
+                                .addComponent(exitStaffButton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -134,7 +137,7 @@ public class staffView extends javax.swing.JDialog {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtStaffId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStaffSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -143,13 +146,11 @@ public class staffView extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtStaffSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtStaffDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addStaffButton)
                     .addComponent(exitStaffButton))
@@ -158,6 +159,37 @@ public class staffView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStaffButtonActionPerformed
+        // TODO add your handling code here:
+        /*
+        if((txtStaffSub.getText().length()==0)||(txtStaffName.getText().length()==0)
+            ||(txtStaffSurname.getText().length()==0)||(txtStaffDepartment.getText().length()==0)
+            ||(nationality_field.getText().length()==0)){  // Checking for empty field
+          JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up the username field");
+        }else{
+            try{
+                PreparedStatement p=conn.prepareStatement("Insert Into Student set title=?,"
+                        + "interprete=?,jahr=?");
+                p.setString(2, firstname_field.getText());
+                p.setString(3, lastname_field.getText());
+                p.setString(4, dob_field.getText());
+                p.setString(6, year_field.getText());
+                p.setString(7, nationality_field.getText());
+                p.execute();
+                
+            }catch(Exception e){
+                System.out.println("Error"+e.toString());
+                return;
+            }
+            firstname_field.setText("");
+            lastname_field.setText("");
+            dob_field.setText("");
+            year_field.setText("");
+            nationality_field.setText("");
+        }
+        */
+    }//GEN-LAST:event_addStaffButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,15 +236,14 @@ public class staffView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStaffButton;
     private javax.swing.JButton exitStaffButton;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField txtStaffDepartment;
-    private javax.swing.JTextField txtStaffId;
     private javax.swing.JTextField txtStaffName;
+    private javax.swing.JTextField txtStaffSub;
     private javax.swing.JTextField txtStaffSurname;
     // End of variables declaration//GEN-END:variables
 }

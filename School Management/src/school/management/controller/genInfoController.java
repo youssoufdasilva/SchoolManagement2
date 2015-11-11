@@ -13,6 +13,7 @@ import school.management.view.streamView;
 import school.management.view.subjectsView;
 import school.management.view.departmentsView;
 import school.management.view.classesView;
+import school.management.controller.staffController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,7 @@ public class genInfoController implements ActionListener {
     subjectsView subV;
     departmentsView depV;
     classesView claV;
+    staffController staffCon;
     
     public genInfoController(generalInformation genInfo){
         gI = genInfo;
@@ -54,6 +56,8 @@ public class genInfoController implements ActionListener {
             stdV.setVisible(true);
         } else if (ae.getSource()==gI.getStaff_btn()){
             stfV = new staffView(loginFrame,true);
+            staffCon = new staffController(stfV);
+            staffCon.control();
             stfV.setVisible(true);
         } else if (ae.getSource()==gI.getStreams_btn()){
             strV = new streamView(loginFrame,true);

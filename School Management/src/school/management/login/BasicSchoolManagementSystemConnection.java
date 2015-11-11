@@ -12,6 +12,7 @@ package school.management.login;
 
 import java.sql.*;
 import javax.swing.*;
+import school.management.model.Staff;
 
 public class BasicSchoolManagementSystemConnection {
     Connection conn;
@@ -54,12 +55,66 @@ public class BasicSchoolManagementSystemConnection {
         try{           
             Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/basicSchoolDataBase?" + "user=root&password=");     
-            pst = conn.prepareStatement("Select * from staff where username=? and password=?");
+            pst = conn.prepareStatement("Select * from login where username=? and password=?");
             pst.setString(1, username); 
             pst.setString(2, password);
             rs = pst.executeQuery();                        
             if(rs.next())            
                 return true;    
+            else
+                return false;            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean addStaff (Staff newStaff) {
+        try{           
+            Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/basicSchoolDataBase?" + "user=root&password="); 
+            System.out.println("About to prepare a statement");
+//            pst = conn.prepareStatement("insert into staff (firstname=?,lastname=?,subjects=?,employment_date=?,department=?)");
+             pst = conn.prepareStatement("insert into staff (firstname,lastname,subjects,employment_date,department) values ('Youssouf','Das','Math','2014/01/01','teacher');");
+//             pst = conn.prepareStatement("insert into staff (firstname,lastname,subjects,department) values ('?','?','?','?');");
+
+//            insert into staff (firstname,lastname,subjects,employment_date,department) values ('Youssouf','Das','Math','2014/01/01','teacher');
+//            pst.setString(1, newStaff.firstName); 
+//            pst.setString(2, newStaff.lastName);
+//            pst.setString(3, newStaff.staffSubject);
+//            pst.setString(4, newStaff.department);
+            
+            rs = pst.executeQuery();                        
+            if(rs.next()) {   
+                System.out.println("Added a staff");
+                return true;  
+            }
+            else
+                return false;            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean addStudent (Staff newStaff) {
+        try{           
+            Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/basicSchoolDataBase?" + "user=root&password=");     
+            pst = conn.prepareStatement("insert into staff (firstname=?,lastname=?,subjects=?,employment_date=?,department=?)");
+            pst.setString(1, newStaff.firstName); 
+            pst.setString(2, newStaff.lastName);
+            pst.setString(3, newStaff.staffSubject);
+            pst.setString(4, String.valueOf(newStaff.hiredDate));
+            pst.setString(5, newStaff.department);
+            
+            rs = pst.executeQuery();                        
+            if(rs.next()) {   
+                System.out.println("Added a staff");
+                return true;  
+            }
             else
                 return false;            
         }

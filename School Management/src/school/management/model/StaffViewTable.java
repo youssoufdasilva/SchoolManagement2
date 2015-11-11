@@ -22,12 +22,11 @@ public class StaffViewTable extends AbstractTableModel{
     final static int STAFFID=0;
     final static int FIRSTNAME=1;
     final static int LASTNAME=2;
-    final static int DATEOFBIRTH=3;
-    final static int HIREDDATE=4;
-    final static int DEPARTMENT=6;
+    final static int HIREDDATE=3;
+    final static int DEPARTMENT=4;
 
     public StaffViewTable(){
-        data=new ArrayList<Staff>();
+        data = new ArrayList<Staff>();
     }
 
     public static StaffViewTable getInstance(){
@@ -57,16 +56,13 @@ public class StaffViewTable extends AbstractTableModel{
         Object cellData = null;
         switch (col){
             case STAFFID:
-                cellData= s.staffId;
+                cellData= s.staffSubject;
                 break;
             case FIRSTNAME:
                 cellData=s.firstName;
                 break;
             case LASTNAME:
                 cellData= s.lastName;
-                break;
-            case DATEOFBIRTH:
-                cellData= s.dateOfBirth;
                 break;
             case HIREDDATE:
                 cellData= s.hiredDate;
@@ -110,22 +106,19 @@ public class StaffViewTable extends AbstractTableModel{
         Object cellData = null;
         switch (col){
             case STAFFID:
-                cellData= s.staffId;
+                cellData= (String) s.staffSubject;
                 break;
             case FIRSTNAME:
-                cellData=s.firstName;
+                cellData=(String) s.firstName;
                 break;
             case LASTNAME:
-                cellData= s.lastName;
-                break;
-            case DATEOFBIRTH:
-                cellData= s.dateOfBirth;
+                cellData= (String) s.lastName;
                 break;
             case HIREDDATE:
-                cellData= s.hiredDate;
+                cellData= String.valueOf(s.hiredDate);
                 break;
             case DEPARTMENT:
-                cellData= s.department;
+                cellData= (String) s.department;
                 break;
         }
 
